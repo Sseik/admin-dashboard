@@ -2,16 +2,87 @@
 
 :root {
   --light-blue-bg: #1892d3;
+  --light-grey: #e1e8f0;
 }
 
 body {
   font-family: "Roboto", sans-serif;
+  display: grid;
+  grid-template-areas:
+    "sidebar header header"
+    "sidebar main aside";
 }
 
 .sidebar {
   background-color: var(--light-blue-bg);
   color: white;
+  grid-area: sidebar;
   .icon {
     filter: invert(100%);
   }
+}
+
+header {
+  grid-area: header;
+  background-color: white;
+  padding: 24px 48px;
+  box-shadow: 0px 4px 8px lightgrey;
+  display: grid;
+  gap: 32px;
+  font-weight: bold;
+  & .row {
+    align-items: center;
+    display: grid;
+    &:nth-child(1) {
+      grid-template-columns: 1fr repeat(3, max-content);
+      & .icon{
+        margin-right: 24px;
+      }
+    }
+    &:nth-child(2) {
+      grid-auto-flow: column;
+      grid-template-columns: max-content 7fr repeat(3, 1fr);
+      button {
+        width: 90%;
+        appearance: none;
+        border: none;
+        color: white;
+        background-color: var(--light-blue-bg);
+        padding: 12px;
+        border-radius: 24px / 50%;
+      }
+    }
+  }
+}
+
+.avatar {
+  border-radius: 50%;
+  margin-right: 24px;
+}
+
+.full-profile-name {
+    font-size: 1.5rem;
+}
+
+search {
+  display: grid;
+  grid-template-columns: max-content 80%;
+  align-items: center;
+}
+
+input[type="search"] {
+  appearance: none;
+  border: none;
+  background-color: var(--light-grey);
+  border-radius: 16px / 50%;
+  outline: none;
+  padding: 8px 16px;
+}
+
+main {
+  grid-area: main;
+}
+
+aside {
+  grid-area: aside;
 }
