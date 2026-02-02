@@ -11,15 +11,38 @@ body {
   grid-template-areas:
     "sidebar header header"
     "sidebar main aside";
-    grid-template-columns: 2fr 6fr 2fr;
+  grid-template-columns: 350px 3fr 1fr;
 }
 
 .sidebar {
   background-color: var(--light-blue-bg);
   color: white;
   grid-area: sidebar;
+  padding-top: 16px;
+  display: grid;
+  grid-template: repeat(3, min-content) / 1fr;
+  gap: 64px;
   .icon {
     filter: invert(100%);
+    justify-self: center;
+  }
+  h1 {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    font-weight: 600;
+  }
+  ul {
+    padding-left: 0;
+    font-weight: 500;
+    font-size: 1.5rem;
+    display: grid;
+    gap: 16px;
+    li {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      align-items: center;
+    }
   }
 }
 
@@ -36,7 +59,7 @@ header {
     display: grid;
     &:nth-child(1) {
       grid-template-columns: 1fr repeat(3, max-content);
-      & .icon{
+      & .icon {
         margin-right: 24px;
       }
     }
@@ -63,7 +86,7 @@ header {
 }
 
 .full-profile-name {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 search {
