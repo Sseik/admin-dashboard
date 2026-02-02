@@ -1,0 +1,17 @@
+@import "./reset.css";
+
+:root {
+  --light-blue-bg: #1892d3;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.sidebar {
+  background-color: var(--light-blue-bg);
+  color: white;
+  .icon {
+    filter: invert(100%);
+  }
+}
