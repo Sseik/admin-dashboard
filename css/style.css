@@ -3,6 +3,7 @@
 :root {
   --light-blue-bg: #1892d3;
   --light-grey: #e1e8f0;
+  --light-orange: #f1b329;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
   grid-template-areas:
     "sidebar header header"
     "sidebar main aside";
-  grid-template-columns: 350px 3fr 1fr;
+  grid-template-columns: 350px 2fr 1fr;
 }
 
 .sidebar {
@@ -106,6 +107,46 @@ input[type="search"] {
 
 main {
   grid-area: main;
+  background-color: var(--light-grey);
+  z-index: -1;
+  padding: 48px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content;
+  gap: 32px;
+  grid-auto-rows: 1fr;
+  & .card {
+    border-left: 8px solid var(--light-orange);
+    & .actions {
+        width: 40%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        position: absolute;
+        bottom: 32px;
+        right: 32px;
+        > .icon {
+            justify-self: flex-end;
+        }
+    }
+  }
+}
+
+h2 {
+  grid-column: 1 / -1;
+  margin-bottom: -16px;
+  font-weight: 600;
+}
+
+.card {
+  box-shadow: 2px 2px 4px lightgrey;
+  background-color: white;
+  border-radius: 8px;
+  padding: 32px;
+  position: relative;
+}
+
+.project-name, .description {
+    color: grey;
 }
 
 aside {
