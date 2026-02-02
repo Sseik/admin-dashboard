@@ -11,6 +11,7 @@ body {
   grid-template-areas:
     "sidebar header header"
     "sidebar main aside";
+    grid-template-columns: 2fr 6fr 2fr;
 }
 
 .sidebar {
@@ -50,6 +51,7 @@ header {
         background-color: var(--light-blue-bg);
         padding: 12px;
         border-radius: 24px / 50%;
+        justify-self: right;
       }
     }
   }
