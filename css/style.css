@@ -12,7 +12,7 @@ body {
   grid-template-areas:
     "sidebar header header"
     "sidebar main aside";
-  grid-template-columns: 350px 2fr 1fr;
+  grid-template-columns: 350px 3fr 1fr;
 }
 
 .sidebar {
@@ -55,6 +55,7 @@ header {
   display: grid;
   gap: 32px;
   font-weight: bold;
+  z-index: 1;
   & .row {
     align-items: center;
     display: grid;
@@ -108,7 +109,6 @@ input[type="search"] {
 main {
   grid-area: main;
   background-color: var(--light-grey);
-  z-index: -1;
   padding: 48px 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -118,15 +118,15 @@ main {
   & .card {
     border-left: 8px solid var(--light-orange);
     & .actions {
-        width: 40%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        position: absolute;
-        bottom: 32px;
-        right: 32px;
-        > .icon {
-            justify-self: flex-end;
-        }
+      width: 40%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      position: absolute;
+      bottom: 32px;
+      right: 32px;
+      > .icon {
+        justify-self: flex-end;
+      }
     }
   }
 }
@@ -145,10 +145,57 @@ h2 {
   position: relative;
 }
 
-.project-name, .description {
-    color: grey;
+.project-name,
+.description {
+  color: grey;
 }
 
 aside {
   grid-area: aside;
+  background-color: var(--light-grey);
+  display: grid;
+  /* 
+    I've tried grid-template-rows: repeat(2, auto 1fr)
+    to make both cards the same height but liked what
+    I got without it more
+  */
+  padding: 48px 48px 48px 0;
+  gap: 32px;
+}
+
+hr {
+  margin: 16px 0;
+  border-color: var(--light-grey);
+}
+
+aside div:nth-of-type(1) {
+  display: grid;
+  > .description + h3 {
+    border-top: 1px solid grey;
+    padding-top: 12px;
+  }
+  > h3 + .description {
+    margin-bottom: 12px;
+  }
+  > .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+aside > div:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  row-gap: 16px;
+  > .avatar {
+  }
+  & .username {
+  }
+  & .project-name {
+  }
 }
