@@ -193,3 +193,69 @@ aside > div:nth-of-type(2) {
   align-items: center;
   row-gap: 16px;
 }
+
+@media (max-width: 50rem) {
+  body {
+    grid-template-areas:
+      "sidebar"
+      "header"
+      "main"
+      "aside";
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    gap: 8px;
+    padding: 8px;
+    align-items: center;
+    grid-template-rows: auto;
+    nav {
+      display: none;
+    }
+    h1 {
+      grid-template-columns: max-content 1fr;
+      &::after {
+        content: "≡";
+        position: absolute;
+        right: 16px;
+        top: calc(-2rem + 16px);
+        color: white;
+        font-size: 4rem;
+      }
+    }
+  }
+  header {
+    padding: 8px;
+    gap: 8px;
+    div:first-of-type {
+      grid-template: 1fr 1fr / 24px 72px 1fr;
+      gap: 8px;
+      search {
+        grid-column: 1 / -1;
+      }
+    }
+    & .row:nth-child(2) {
+      grid-template-columns: repeat(3, 1fr);
+      & .avatar,
+      & .greeting {
+        display: none;
+      }
+      button {
+        justify-self: center;
+      }
+    }
+  }
+  main {
+    grid-template-columns: 1fr;
+    padding: 16px 8px 0 8px;
+    & .card {
+      padding-bottom: 64px;
+    }
+  }
+  aside {
+    padding: 32px 8px 16px 8px;
+    gap: 16px;
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+}
